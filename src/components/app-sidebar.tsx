@@ -33,7 +33,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import Image from "next/image";
+import { AvatarLogo } from "./avatar-logo";
 
 const data = {
   user: {
@@ -163,13 +163,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
               <a href="#">
-                <Image
-                  src="/assets/logo.png"
-                  alt="TF Finance Edu"
-                  width={32}
-                  height={32}
-                  className="rounded-full"
-                />
+                <AvatarLogo className="size-6" />
                 <span className="text-base font-semibold">TF Finance Edu</span>
               </a>
             </SidebarMenuButton>
