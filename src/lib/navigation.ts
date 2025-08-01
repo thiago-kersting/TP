@@ -9,26 +9,26 @@ import {
   IconReport,
 } from "@tabler/icons-react";
 
-export interface INavItems {
+interface INavItems {
   title: string;
-  url: string;
+  url?: string;
 }
-
-interface INavMain extends INavItems {
+export interface INavMain extends INavItems {
   icon: any;
 }
 
-interface INavSecondary extends INavMain {}
+export interface INavUser {
+  avatar: string;
+  name: string;
+  email: string;
+}
 
-interface IDocuments extends INavMain {}
+export interface INavSecondary extends INavMain {}
+
+export interface IDocuments extends INavMain {}
 
 export interface NavigationData {
-  user: {
-    name: string;
-    email: string;
-    avatar: string;
-    title?: string;
-  };
+  user: INavUser;
   navMain: INavMain[];
   navSecondary: INavSecondary[];
   documents: IDocuments[];
@@ -53,7 +53,7 @@ export const navigationData: NavigationData = {
     },
     {
       title: "Relatórios",
-      url: "#",
+      url: "/reports",
       icon: IconReport,
     },
   ],
@@ -77,7 +77,7 @@ export const navigationData: NavigationData = {
   documents: [
     {
       title: "Editar Gastos em Tabela",
-      url: "#",
+      url: "/table-expenses",
       icon: IconDatabase,
     },
     {

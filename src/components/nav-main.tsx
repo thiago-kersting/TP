@@ -12,16 +12,9 @@ import {
 } from "@/components/ui/sidebar";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { INavMain } from "@/lib/navigation";
 
-export function NavMain({
-  items,
-}: {
-  items: {
-    title: string;
-    url: string;
-    icon?: Icon;
-  }[];
-}) {
+export function NavMain({ items }: { items: INavMain[] }) {
   const pathname = usePathname();
 
   return (
@@ -54,7 +47,7 @@ export function NavMain({
                 tooltip={item.title}
                 isActive={pathname === item.url}
               >
-                <Link href={item.url}>
+                <Link href={item.url || ""}>
                   {item.icon && <item.icon />}
                   <span>{item.title}</span>
                 </Link>

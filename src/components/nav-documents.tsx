@@ -24,16 +24,9 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { IDocuments } from "@/lib/navigation";
 
-export function NavDocuments({
-  items,
-}: {
-  items: {
-    title: string;
-    url: string;
-    icon: Icon;
-  }[];
-}) {
+export function NavDocuments({ items }: { items: IDocuments[] }) {
   const { isMobile } = useSidebar();
 
   return (
