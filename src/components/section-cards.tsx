@@ -36,7 +36,9 @@ export function SectionCards() {
           <div className="line-clamp-1 flex gap-2 font-medium items-center">
             Aumentou neste mês <IconTrendingUp className="size-4" />
           </div>
-          <div className="text-muted-foreground">Baseado no mês anterior</div>
+          <div className="text-muted-foreground">
+            Baseado no mês anterior na mesma data
+          </div>
         </CardFooter>
       </Card>
       <Card className="@container/card">
@@ -54,7 +56,7 @@ export function SectionCards() {
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium items-center">
-            Meta que você definiu para o mês <IconTarget className="size-4" />
+            Você está dentro da meta! <IconTarget className="size-4" />
           </div>
           <div className="text-muted-foreground">
             Meta opcional personalizada
@@ -76,14 +78,15 @@ export function SectionCards() {
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium items-center">
-            Categorias onde você mais gastou <IconCategory className="size-4" />
+            Você tem gastos muito altos nessa categoria!{" "}
+            <IconCategory className="size-4" />
           </div>
           <div className="text-muted-foreground">Baseado nos seus gastos</div>
         </CardFooter>
       </Card>
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>Número de Transações</CardDescription>
+          <CardDescription>Número de registros</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
             48 registros
           </CardTitle>
@@ -96,10 +99,11 @@ export function SectionCards() {
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium items-center">
-            Quantidade de comandos enviados <IconReceipt className="size-4" />
+            Ainda restam 589 registros para usar esse mês!{" "}
+            <IconReceipt className="size-4" />
           </div>
           <div className="text-muted-foreground">
-            Comandos enviados no WhatsApp
+            Quantidade de registros no mês via WhatsApp
           </div>
         </CardFooter>
       </Card>

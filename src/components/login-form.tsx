@@ -1,16 +1,41 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { AvatarLogo } from "./avatar-logo";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    // Simular uma requisição de login (substitua pela sua lógica real)
+    try {
+      // Aqui você pode adicionar sua lógica de autenticação
+      // Por exemplo: await signIn(email, password);
+
+      // Redirecionar para o dashboard após login bem-sucedido
+      router.push("/dashboard");
+    } catch (error) {
+      console.error("Erro no login:", error);
+      // Aqui você pode adicionar tratamento de erro
+    }
+  };
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-6">
           <div className="flex flex-col items-center gap-2">
             <a
@@ -47,8 +72,8 @@ export function LoginForm({
                 required
               />
             </div>
-            <Button type="submit" className="w-full">
-              Login
+            <Button type="submit" className="w-full" disabled={isLoading}>
+              {isLoading ? "Entrando..." : "Login"}
             </Button>
           </div>
           <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
@@ -64,7 +89,7 @@ export function LoginForm({
                   fill="currentColor"
                 />
               </svg>
-              Continue with Apple
+              Continuar com Apple
             </Button>
             <Button variant="outline" type="button" className="w-full">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -73,14 +98,15 @@ export function LoginForm({
                   fill="currentColor"
                 />
               </svg>
-              Continue with Google
+              Continuar com Google
             </Button>
           </div>
         </div>
       </form>
       <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
+        Ao clicar em continuar, você concorda com nossos{" "}
+        <a href="#">Termos de Serviço</a> e{" "}
+        <a href="#">Política de Privacidade</a>.
       </div>
     </div>
   );
