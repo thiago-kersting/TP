@@ -7,14 +7,17 @@ import {
   IconSettings,
   IconMessageUser,
   IconReport,
+  IconProps,
+  Icon,
 } from "@tabler/icons-react";
+import { ForwardRefExoticComponent, RefAttributes } from "react";
 
 interface INavItems {
   title: string;
   url?: string;
 }
 export interface INavMain extends INavItems {
-  icon: any;
+  icon: ForwardRefExoticComponent<IconProps & RefAttributes<Icon>>;
 }
 
 export interface INavUser {
@@ -23,8 +26,10 @@ export interface INavUser {
   email: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface INavSecondary extends INavMain {}
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface IDocuments extends INavMain {}
 
 export interface NavigationData {
